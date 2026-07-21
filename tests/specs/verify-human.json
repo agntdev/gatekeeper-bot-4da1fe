@@ -1,19 +1,13 @@
 [
   {
-    "name": "I'm human",
+    "name": "I'm human verification succeeds",
     "steps": [
       {
+        "send": { "callback": "verify:human" },
         "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Complete verification challenge"
-            }
-          }
-        ],
-        "send": {
-          "callback": "verify:human"
-        }
+          { "method": "answerCallbackQuery" },
+          { "method": "sendMessage", "payload": { "text": "You're verified! You can now participate in the group." } }
+        ]
       }
     ]
   }

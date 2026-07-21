@@ -1,0 +1,26 @@
+[
+  {
+    "name": "settings menu shows owner controls",
+    "steps": [
+      {
+        "send": { "callback": "menu:config" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "editMessageText", "payload": { "text": "Owner settings:\n\nWelcome: Welcome to the group! Please verify you're human to particip…\nRules: Be respectful. No spam. No harassment.\nSpam threshold: 5 messages\nFlood threshold: 3 messages/minute\nDetectors: ON\nTrusted users: 0\nVerification window: 3 min" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "toggle detectors turns them off",
+    "steps": [
+      {
+        "send": { "callback": "config:detectors" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "editMessageText", "payload": { "text": "Spam detectors are now OFF." } }
+        ]
+      }
+    ]
+  }
+]
