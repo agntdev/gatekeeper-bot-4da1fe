@@ -1,0 +1,26 @@
+[
+  {
+    "name": "moderation menu shows admin controls",
+    "steps": [
+      {
+        "send": { "callback": "menu:moderation" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "editMessageText", "payload": { "text": "Admin moderation controls:\n\nTotal events logged: 0\n\nSelect an action, then reply with the target user's ID." } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "warn action prompts for target",
+    "steps": [
+      {
+        "send": { "callback": "mod:warn" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "sendMessage", "payload": { "text": "Action selected: WARN\n\nReply with the target user's ID to proceed." } }
+        ]
+      }
+    ]
+  }
+]

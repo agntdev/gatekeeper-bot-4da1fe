@@ -1,0 +1,14 @@
+[
+  {
+    "name": "stats menu shows summary",
+    "steps": [
+      {
+        "send": { "callback": "menu:stats" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "editMessageText", "payload": { "text": "Moderation summary:\n\nTotal moderation actions: 0\nVerified members: 0\nTotal members tracked: 0\nEvents logged: 0" } }
+        ]
+      }
+    ]
+  }
+]
